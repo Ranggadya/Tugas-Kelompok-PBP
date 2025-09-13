@@ -1,18 +1,13 @@
 <?php
 session_start();
 
-// Cek apakah ada data student di session
 if (!isset($_SESSION['student_data'])) {
     header('Location: index.php');
     exit;
 }
 
 $student_data = $_SESSION['student_data'];
-
-// Cek apakah success alert perlu ditampilkan
 $show_success_alert = isset($_SESSION['success']) && $_SESSION['success'] === true;
-
-// Setelah dibaca, hapus flag success biar tidak alert lagi saat refresh
 unset($_SESSION['success']);
 ?>
 <!DOCTYPE html>
@@ -143,14 +138,14 @@ unset($_SESSION['success']);
                             <?php endforeach; ?>
                         </div>
                     <?php else: ?>
-                        <span class="no-hobi">None selected</span>
+                        <span class="no-hobi">Tidak ada</span>
                     <?php endif; ?>
                 </span>
             </div>
         </div>
 
         <div class="action-buttons">
-            <a href="index.php" class="btn btn-primary">← Back to Form</a>
+            <a href="index.php" class="btn btn-primary">← Kembali ke FORM</a>
         </div>
     </div>
 </body>
