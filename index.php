@@ -14,7 +14,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Sign On Form</title>
+    <title>Tugas PBP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,7 +51,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             vertical-align: top;
         }
         
-        .label-cell {
+        .nama-baris {
             background-color: #f8f8f8;
             width: 150px;
             font-weight: bold;
@@ -144,7 +144,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             <form method="POST" action="proccess.php">
                 <table>
                     <tr>
-                        <td class="label-cell">Username:</td>
+                        <td class="nama-baris">Username</td>
                         <td>
                             <input type="text" name="username" value="<?php echo htmlspecialchars($formData['username'] ?? ''); ?>">
                             <div class="note">Note: Username cannot contain numbers</div>
@@ -152,7 +152,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
                     </tr>
                     
                     <tr>
-                        <td class="label-cell">Email:</td>
+                        <td class="nama-baris">Email</td>
                         <td>
                             <input type="email" name="email" value="<?php echo htmlspecialchars($formData['email'] ?? ''); ?>">
                             <div class="note">Note: Email contain @ followed by domain</div>
@@ -160,14 +160,14 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
                     </tr>
                     
                     <tr>
-                        <td class="label-cell">Perguruan Tinggi:</td>
+                        <td class="nama-baris">Perguruan Tinggi</td>
                         <td>
                             <input type="text" name="perguruan_tinggi" value="<?php echo htmlspecialchars($formData['perguruan_tinggi'] ?? ''); ?>">
                         </td>
                     </tr>
                     
                     <tr>
-                        <td class="label-cell">Program Studi:</td>
+                        <td class="nama-baris">Program Studi</td>
                         <td>
                             <div class="radio-group">
                                 <input type="radio" id="informatika" name="program_studi" value="Informatika" <?php echo (($formData['program_studi'] ?? '') === 'Informatika') ? 'checked' : ''; ?>>
@@ -197,7 +197,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
                     </tr>
                     
                     <tr>
-                        <td class="label-cell">Hobi:</td>
+                        <td class="nama-baris">Hobi:</td>
                         <td>
                             <div class="checkbox-group">
                                 <input type="checkbox" id="futsal" name="hobi[]" value="Futsal" <?php echo in_array('Futsal', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
@@ -223,7 +223,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
                     </tr>
                     
                     <tr>
-                        <td class="label-cell">Password:</td>
+                        <td class="nama-baris">Password</td>
                         <td>
                             <input type="password" name="password" value="<?php echo htmlspecialchars($formData['password'] ?? ''); ?>">
                             <div class="note">hint: Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, and one number.</div>
