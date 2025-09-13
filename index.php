@@ -16,27 +16,34 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas PBP</title>
-     <style>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             max-width: 850px;
             margin: 30px auto;
             padding: 20px;
         }
-        
+
         .form-container {
             background-color: #fff;
             padding: 35px;
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             animation: fadeIn 0.6s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(-10px);}
-            to {opacity: 1; transform: translateY(0);}
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         h1 {
             margin: 0 0 25px 0;
             padding: 18px;
@@ -47,25 +54,27 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             font-weight: bold;
             text-align: center;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        
+
         td {
             padding: 15px;
             border-bottom: 1px solid #eee;
             vertical-align: top;
         }
-        
+
         .nama-baris {
             width: 180px;
             font-weight: bold;
             color: #444;
         }
-        
-        input[type="text"], input[type="email"], input[type="password"] {
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -74,32 +83,38 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             margin-bottom: 5px;
             transition: all 0.3s ease;
         }
-        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
             border-color: #667eea;
             outline: none;
-            box-shadow: 0 0 6px rgba(102,126,234,0.4);
+            box-shadow: 0 0 6px rgba(102, 126, 234, 0.4);
         }
-        
+
         .note {
             font-size: 13px;
             color: #777;
             margin-top: 4px;
         }
-        
-        .radio-group, .checkbox-group {
+
+        .radio-group,
+        .checkbox-group {
             margin: 6px 0;
         }
-        
-        .radio-group input, .checkbox-group input {
+
+        .radio-group input,
+        .checkbox-group input {
             accent-color: #667eea;
         }
 
-        .radio-group label, .checkbox-group label {
+        .radio-group label,
+        .checkbox-group label {
             margin-left: 6px;
             font-weight: normal;
             color: #333;
         }
-        
+
         .submit-btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -111,16 +126,16 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             margin: 25px auto;
             display: block;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(118,75,162,0.3);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .submit-btn:hover {
             background: linear-gradient(135deg, #5a67d8, #6b46c1);
             transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(118,75,162,0.5);
+            box-shadow: 0 7px 20px rgba(118, 75, 162, 0.5);
         }
-        
+
         .alert {
             padding: 15px;
             margin: 20px 0;
@@ -128,7 +143,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             font-weight: bold;
             animation: fadeIn 0.5s ease-in-out;
         }
-        
+
         .alert-error {
             background-color: #fdecea;
             color: #b71c1c;
@@ -140,13 +155,11 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
 <body>
     <div class="form-container">
         <?php if (!empty($errors)): ?>
-            <div class="alert alert-error">
-                ⚠️ Error Messages:<br>
-                <?php foreach ($errors as $error): ?>
-                    • <?= htmlspecialchars($error) ?><br>
-                <?php endforeach; ?>
-            </div>
+            <script>
+                alert("<?= implode('\n', array_map('addslashes', $errors)) ?>");
+            </script>
         <?php endif; ?>
+
         <h1>Student Sign On Form</h1>
 
         <form method="POST" action="proccess.php">
