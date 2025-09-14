@@ -48,10 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Email must be valid (contain @ and domain)";
     }
 
-    if ($perguruan_tinggi === '') {
-        $errors[] = "University is required";
-    }
-
     if ($program_studi === '') {
         $errors[] = "Program Studi must be selected";
     }
