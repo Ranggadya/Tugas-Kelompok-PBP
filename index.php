@@ -1,11 +1,7 @@
 <?php
 session_start();
-
-// Ambil data lama & error dari session (jika ada)
 $formData = $_SESSION['form_data'] ?? [];
 $errors   = $_SESSION['errors'] ?? [];
-
-// Hapus supaya tidak numpuk tiap refresh
 unset($_SESSION['form_data'], $_SESSION['errors']);
 ?>
 
@@ -98,18 +94,18 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
             margin-top: 4px;
         }
 
-        .radio-group,
-        .checkbox-group {
+        .prodi-list,
+        .hobi-list {
             margin: 6px 0;
         }
 
-        .radio-group input,
-        .checkbox-group input {
+        .prodi-list input,
+        .hobi-list input {
             accent-color: #667eea;
         }
 
-        .radio-group label,
-        .checkbox-group label {
+        .prodi-list label,
+        .hobi-list label {
             margin-left: 6px;
             font-weight: normal;
             color: #333;
@@ -190,55 +186,67 @@ unset($_SESSION['form_data'], $_SESSION['errors']);
                 <tr>
                     <td class="nama-baris">Program Studi</td>
                     <td>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="informatika" name="program_studi" value="Informatika" <?php echo (($formData['program_studi'] ?? '') === 'Informatika') ? 'checked' : ''; ?>>
                             <label for="informatika">Informatika</label>
                         </div>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="matematika" name="program_studi" value="Matematika" <?php echo (($formData['program_studi'] ?? '') === 'Matematika') ? 'checked' : ''; ?>>
                             <label for="matematika">Matematika</label>
                         </div>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="fisika" name="program_studi" value="Fisika" <?php echo (($formData['program_studi'] ?? '') === 'Fisika') ? 'checked' : ''; ?>>
                             <label for="fisika">Fisika</label>
                         </div>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="kimia" name="program_studi" value="Kimia" <?php echo (($formData['program_studi'] ?? '') === 'Kimia') ? 'checked' : ''; ?>>
                             <label for="kimia">Kimia</label>
                         </div>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="statistika" name="program_studi" value="Statistika" <?php echo (($formData['program_studi'] ?? '') === 'Statistika') ? 'checked' : ''; ?>>
                             <label for="statistika">Statistika</label>
                         </div>
-                        <div class="radio-group">
+                        <div class="prodi-list">
                             <input type="radio" id="biologi" name="program_studi" value="Biologi" <?php echo (($formData['program_studi'] ?? '') === 'Biologi') ? 'checked' : ''; ?>>
                             <label for="biologi">Biologi</label>
+                        </div>
+                        <div class="prodi-list">
+                            <input type="radio" id="kedokteran" name="program_studi" value="Kedokteran" <?php echo (($formData['program_studi'] ?? '') === 'Kedokteran') ? 'checked' : ''; ?>>
+                            <label for="kedokteran">Kedokteran</label>
                         </div>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="nama-baris">Hobi:</td>
+                    <td class="nama-baris">Hobi</td>
                     <td>
-                        <div class="checkbox-group">
+                        <div class="hobi-list">
                             <input type="checkbox" id="futsal" name="hobi[]" value="Futsal" <?php echo in_array('Futsal', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
                             <label for="futsal">Futsal</label>
                         </div>
-                        <div class="checkbox-group">
+                        <div class="hobi-list">
                             <input type="checkbox" id="badminton" name="hobi[]" value="Badminton" <?php echo in_array('Badminton', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
                             <label for="badminton">Badminton</label>
                         </div>
-                        <div class="checkbox-group">
+                        <div class="hobi-list">
                             <input type="checkbox" id="membaca" name="hobi[]" value="Membaca" <?php echo in_array('Membaca', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
                             <label for="membaca">Membaca</label>
                         </div>
-                        <div class="checkbox-group">
+                        <div class="hobi-list">
                             <input type="checkbox" id="menulis" name="hobi[]" value="Menulis" <?php echo in_array('Menulis', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
                             <label for="menulis">Menulis</label>
                         </div>
-                        <div class="checkbox-group">
+                        <div class="hobi-list">
                             <input type="checkbox" id="travelling" name="hobi[]" value="Travelling" <?php echo in_array('Travelling', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
                             <label for="travelling">Travelling</label>
+                        </div>
+                        <div class="hobi-list">
+                            <input type="checkbox" id="basket" name="hobi[]" value="Basket" <?php echo in_array('Basket', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="travelling">Basket</label>
+                        </div>
+                        <div class="hobi-list">
+                            <input type="checkbox" id="lari" name="hobi[]" value="Lari" <?php echo in_array('Lari', $formData['hobi'] ?? []) ? 'checked' : ''; ?>>
+                            <label for="travelling">Lari</label>
                         </div>
                     </td>
                 </tr>
